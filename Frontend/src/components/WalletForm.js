@@ -3,34 +3,62 @@ import axios from "axios";
 
 const WalletForm = () => {
     const [walletId, setWalletId] = useState("");
-    const [action, setAction] = useState("");
+    const [action, setAction] = useState("balance");
+    const [amount, setAmount] = useState(0);
     const [response, setResponse] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const result = await axios.post("http://localhost:8000/manage-wallet", { wallet_id: walletId, action });
-        setResponse(result.data);
+        try {
+            const result = await axios.post("http://localhost:8000/manage-wallet", {
+                wallet_id: walletId,
+                action,
+                amount: action === "transfer" ? amount : undefined,
+            });
+            setResponse(result.data);
+        } catch (error) {
+            console.error("Wallet action error:", error);
+        }
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
+        <form onSubmit={handleSubmit} className="p-4 border rounded">
+            <h2 className="text-xl font-bold mb-4">Wallet Actions</h2>
+            <label className="block mb-2">
                 Wallet ID:
                 <input
                     type="text"
                     value={walletId}
                     onChange={(e) => setWalletId(e.target.value)}
+                    className="p-2 border rounded w-full"
                 />
             </label>
-            <label>
+            <label className="block mb-2">
                 Action:
-                <select value={action} onChange={(e) => setAction(e.target.value)}>
+                <select
+                    value={action}
+                    onChange={(e) => setAction(e.target.value)}
+                    className="p-2 border rounded w-full"
+                >
                     <option value="balance">Check Balance</option>
                     <option value="transfer">Transfer Funds</option>
                 </select>
             </label>
-            <button type="submit">Submit</button>
-            {response && <pre>{JSON.stringify(response, null, 2)}</pre>}
+            {action === "transfer" && (
+                <label className="block mb-2">
+                    Amount:
+                    <input
+                        type="number"
+                        value={amount}
+                        onChange={(e) => setAmount(e.target.value)}
+                        className="p-2 border rounded w-full"
+                    />
+                </label>
+            )}
+            <button type="submit" className="bg-teal-500 text-white py-2 px-4 rounded">
+                Submit
+            </button>
+            {response && <pre className="bg-gray-100 p-2 mt-4">{JSON.stringify(response, null, 2)}</pre>}
         </form>
     );
 };

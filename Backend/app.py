@@ -4,6 +4,7 @@ from integrations.switchboard import fetch_market_data
 from integrations.meteora import interact_with_meteora
 from integrations.orca import interact_with_orca
 from integrations.crossmint import interact_with_crossmint
+from integrations.adrena import simulate_trade
 
 app = FastAPI()
 
@@ -31,4 +32,9 @@ def wallet_action(wallet_id: str, action: str):
 @app.post("/whirlpool")
 def manage_whirlpool_action(pool_id: str, action: str):
     result = interact_with_orca(pool_id, action)
+    return {"status": "success", "details": result}
+
+@app.post("/simulate-trade")
+def simulate_trade_action(pair: str, amount: float):
+    result = simulate_trade(pair, amount)
     return {"status": "success", "details": result}
