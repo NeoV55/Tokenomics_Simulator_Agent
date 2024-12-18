@@ -146,11 +146,3 @@ During the Solana Hackathon, the **Tokenomics Simulator Agent** will demonstrate
 
 ---
 
-## **Getting Started**
-
-To clone and run this project locally:
-
-1. Clone the repository:  
-   ```bash
-   git clone <repository-url>
-   cd Tokenomics-Simulator-Agent
