@@ -21,6 +21,7 @@ The core of the simulator enables users to model various tokenomics scenarios, i
 - **Machine Learning Models**:  
   - AI algorithms predict outcomes based on historical and real-time data.  
   - Distributed GPU cluster support from **Kuzco** ensures efficient, on-chain inference.
+  - Enhanced by **Eliza from a16z**, providing advanced AI processing and insights for tokenomics simulations.
 
 - **Visualization**:  
   - Predictions are visualized through graphs and heatmaps, helping users understand trends and potential outcomes.
@@ -108,8 +109,8 @@ The simulator includes powerful tools for long-term economic forecasting:
    - They input tokenomics parameters or create a new token using the **Token Creator** tool.
 
 2. **Backend Processing**:  
-   - The backend, powered by **FastAPI**, computes simulations in real-time by fetching data from **Switchboard Oracles** and integrating AI predictions.  
-   - DeFi actions are simulated using **Meteora**, **Orca**, and **Adrena** APIs.
+   - The backend, powered by **Node.js**, computes simulations in real-time by fetching data from **Switchboard Oracles** and integrating AI predictions.  
+   - DeFi actions are simulated using **Meteora**, **Orca**, and **Adrena APIs**, and enhanced by **Eliza from a16z** for advanced processing.
 
 3. **Frontend Display**:  
    - The frontend dynamically renders simulation results, allowing users to tweak inputs and observe outcomes instantly.
@@ -134,15 +135,3 @@ During the Solana Hackathon, the **Tokenomics Simulator Agent** will demonstrate
 
 - **Sponsor Integrations**:  
   - Real-world usage of **Switchboard**, **Meteora**, **Orca**, and **Crossmint** features within the workflow.
-
----
-
-## **Technologies Used**
-
-- **Frontend**: ReactJS, D3.js, Chart.js  
-- **Backend**: FastAPI, PyTorch, TensorFlow  
-- **Blockchain**: Solana Web3.js, Anchor Framework  
-- **Sponsor Integrations**: Switchboard, Meteora, Orca, Crossmint  
-
----
-
