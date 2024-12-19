@@ -1,6 +1,6 @@
 const express = require("express");
 const { Connection, PublicKey } = require("@solana/web3.js");
-const { SwitchboardProgram, SBV2_MAINNET_PID } = require("@switchboard-xyz/solana");
+const { SwitchboardProgram, SBV2_MAINNET_PID } = require("@switchboard-xyz/solana.js");
 
 const router = express.Router();
 const connection = new Connection(process.env.SOLANA_RPC_URL);
